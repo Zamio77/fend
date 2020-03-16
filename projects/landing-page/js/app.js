@@ -55,7 +55,11 @@ function buildNav(sections) {
     navbarList.append(fragment);
 }
 
-// Scroll to element ID 
+
+// Add class 'active' to section when near top of viewport
+
+
+// Scroll to anchor ID using scrollTO event
 function scrollToElement(elem) {
     const rect = elem.getBoundingClientRect();
     const top = rect.top + window.pageYOffset;
@@ -65,12 +69,6 @@ function scrollToElement(elem) {
         behavior: 'smooth'
     })
 }
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
 
 /**
  * End Main Functions
