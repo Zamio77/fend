@@ -45,7 +45,26 @@ const isInViewport = elem => {
  */
 
 // build the nav
+function buildNav(sections) {
+    const fragment = document.createDocumentFragment();
+    sections.forEach(section => {
+        const liSection = document.createElement('li');
+        liSection.innerHTML = `<a href="#${section.id}" class="menu__link">${section.dataset.nav}</a>`;
+        fragment.appendChild(liSection);
+    });
+    navbarList.append(fragment);
+}
 
+// Scroll to element ID 
+function scrollToElement(elem) {
+    const rect = elem.getBoundingClientRect();
+    const top = rect.top + window.pageYOffset;
+    window.scrollTo({
+        top,
+        left: 0,
+        behavior: 'smooth'
+    })
+}
 
 // Add class 'active' to section when near top of viewport
 
