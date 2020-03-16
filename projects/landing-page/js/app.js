@@ -27,7 +27,7 @@ const sections = document.querySelectorAll('section');
  * Start Helper Functions
  * 
  */
-const isInViewport = elem => {
+function isInViewport(elem) {
     const el = elem.getBoundingClientRect();
     return (
         el.top >= 0 &&
