@@ -79,5 +79,27 @@ function scrollToElement(elem) {
 // Build menu 
 
 // Scroll to section on link click
+function scrollToSection(e) {
+    e.preventDefault();
+    const currentEle = document.querySelector(e.target.hash);
+    scrollToElement(currentEle);
+}
 
 // Set sections as active
+
+function setSections() {
+    sections.forEach(section => {
+        isInViewport(section) ? section.classList.add('your-active-class') : section.classList.remove('your-active-class');
+    })
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Build menu
+    buildNav(sections);
+
+    // Scroll to section on link click
+    navbarList.addEventListener('click', scrollToSection);
+
+    // Set sections as active
+    window.addEventListener('scroll', setSections);
+})
